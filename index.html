@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tài khoản cá nhân - FixFlow</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Tiêu đề trang -->
+    <div class="page-title">
+        <span>13.</span>
+        <h1>Tài khoản cá nhân</h1>
+    </div>
+
+    <div class="dashboard">
+
+        <!-- Thanh điều hướng bên trái -->
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="logo-icon">🔧</span>
+                <span>FixFlow</span>
+            </div>
+
+            <nav class="menu">
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">⌂</span>
+                    <span>Trang chủ</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">▤</span>
+                    <span>Tạo yêu cầu</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">▦</span>
+                    <span>Yêu cầu của tôi</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">♧</span>
+                    <span>Thông báo</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">♙</span>
+                    <span>Tài khoản</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">ⓘ</span>
+                    <span>Cài đặt</span>
+                </a>
+
+                <button class="menu-item logout-menu" id="logoutMenu">
+                    <span class="menu-icon">♙</span>
+                    <span>Đăng xuất</span>
+                </button>
+            </nav>
+        </aside>
+
+        <!-- Nội dung chính -->
+        <main class="main-content">
+            <h2>Tài khoản cá nhân</h2>
+
+            <div class="content-grid">
+
+                <!-- Thẻ thông tin cá nhân -->
+                <section class="profile-card">
+                    <div class="profile-header">
+                        <div class="avatar" id="avatar">N</div>
+
+                        <div class="profile-heading">
+                            <h3 id="displayName">Nguyễn Văn A</h3>
+                            <p id="displayEmail">nguyenvana@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div c8lass="profile-details">
+                        <div class="detail-row">
+                            <strong>Tên tài</strong>
+                            <span id="accountName">nguyenvana@gmail.com</span>
+                        </div>
+
+                        <div class="detail-row">
+                            <strong>Số điện thoại</strong>
+                            <span id="displayPhone">0987xxxxxx</span>
+                        </div>
+
+                        <div class="detail-row">
+                            <strong>Đơn vị</strong>
+                            <span id="displayDepartment">
+                                Phòng Kỹ thuật chung
+                            </span>
+                        </div>
+                    </div>
+
+                    <button class="primary-button" id="editProfile">
+                        Chỉnh sửa thông tin
+                    </button>
+                </section>
+
+                <!-- Thẻ cài đặt tài khoản -->
+                <section class="settings-card">
+
+                    <div class="setting-section">
+                        <h3>Bảo mật</h3>
+
+                        <button class="setting-button" id="changePassword">
+                            <span class="setting-icon">♙</span>
+                            <span>Đổi mật khẩu</span>
+                        </button>
+                    </div>
+
+                    <div class="setting-section">
+                        <h3>Thông báo</h3>
+
+                        <button class="setting-button" id="notificationSettings">
+                            <span class="setting-icon">♧</span>
+                            <span>Cài đặt thông báo</span>
+                        </button>
+                    </div>
+
+                    <button class="setting-button logout-button" id="logoutButton">
+                        <span class="setting-icon">⇥</span>
+                        <span>Đăng xuất</span>
+                    </button>
+
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Hộp thoại chỉnh sửa thông tin -->
+    <div class="modal" id="profileModal">
+        <div class="modal-content">
+            <button class="close-button" data-close="profileModal"
+                    type="button">&times;</button>
+
+            <h3>Chỉnh sửa thông tin</h3>
+
+            <form id="profileForm">
+                <label for="nameInput">Họ và tên</label>
+                <input id="nameInput" type="text"
+                       value="Nguyễn Văn A" required>
+
+                <label for="emailInput">Email</label>
+                <input id="emailInput" type="email"
+                       value="nguyenvana@gmail.com" required>
+
+                <label for="phoneInput">Số điện thoại</label>
+                <input id="phoneInput" type="text"
+                       value="0987xxxxxx" required>
+
+                <label for="departmentInput">Đơn vị</label>
+                <input id="departmentInput" type="text"
+                       value="Phòng Kỹ thuật chung" required>
+
+                <div class="modal-actions">
+                    <button type="button" class="secondary-button"
+                            data-close="profileModal">Hủy</button>
+                    <button type="submit" class="primary-button">
+                        Lưu thay đổi
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Hộp thoại đổi mật khẩu -->
+    <div class="modal" id="passwordModal">
+        <div class="modal-content">
+            <button class="close-button" data-close="passwordModal"
+                    type="button">&times;</button>
+
+            <h3>Đổi mật khẩu</h3>
+
+            <form id="passwordForm">
+                <label for="oldPassword">Mật khẩu hiện tại</label>
+                <input id="oldPassword" type="password" required>
+
+                <label for="newPassword">Mật khẩu mới</label>
+                <input id="newPassword" type="password"
+                       minlength="8" required>
+
+                <label for="confirmPassword">Xác nhận mật khẩu mới</label>
+                <input id="confirmPassword" type="password"
+                       minlength="8" required>
+
+                <div class="modal-actions">
+                    <button type="button" class="secondary-button"
+                            data-close="passwordModal">Hủy</button>
+                    <button type="submit" class="primary-button">
+                        Xác nhận
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Hộp thoại cài đặt thông báo -->
+    <div class="modal" id="notificationModal">
+        <div class="modal-content">
+            <button class="close-button" data-close="notificationModal"
+                    type="button">&times;</button>
+
+            <h3>Cài đặt thông báo</h3>
+
+            <label class="toggle-row">
+                <span>Thông báo qua email</span>
+                <input type="checkbox" id="emailNotification" checked>
+            </label>
+
+            <label class="toggle-row">
+                <span>Thông báo về yêu cầu</span>
+                <input type="checkbox" id="requestNotification" checked>
+            </label>
+
+            <button class="primary-button full-button" id="saveNotifications">
+                Lưu cài đặt
+            </button>
+        </div>
+    </div>
+
+    <!-- Hộp thoại xác nhận đăng xuất -->
+    <div class="modal" id="logoutModal">
+        <div class="modal-content">
+            <button class="close-button" data-close="logoutModal"
+                    type="button">&times;</button>
+
+            <h3>Đăng xuất</h3>
+            <p>Bạn có chắc chắn muốn đăng xuất khỏi tài khoản?</p>
+
+            <div class="modal-actions">
+                <button class="secondary-button" data-close="logoutModal"
+                        type="button">Hủy</button>
+                <button class="danger-button" id="confirmLogout"
+                        type="button">Đăng xuất</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Thông báo kết quả -->
+    <div class="toast" id="toast" role="status"></div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
